@@ -7,6 +7,7 @@
     2. [Walkthrough](#walkthrough)
 3. [Usage](#usage)
     1. [Initialization](#initialization)
+    2. [Data Storage and Access](#datastorage)
 
 ## Introduction <a name="introduction"></a>
 
@@ -33,8 +34,22 @@ The package contains all of the C code for the above mentioned functions but als
   - numpy 
 3. From the project root directory run `make all` in the terminal to compile the C++/CUDA source code into shared libraries (.so files) in the lib folder
 4. If not already present make a folder called `data` in project root directory, this is where input and output data will be placed for the model
-5. To call the model from the associated python module either create a python script in the `src` directory and run it from the project root directory with `python src/<script_name.py>` or load model interface from a REPL or interactive shell started from the project root directory (in which case the core module should be imported with `from src.sim.core import *`)
+5. To call the model from the associated python module either create a python script in the `src` directory and run it from the project root directory with `python src/<script_name.py>` or load model interface from a REPL or interactive shell started from the project root directory (in which case the core module should be imported with `from src.dist.core import *`)
 
 ## Usage <a name="usage"></a>
 
 ### Initialization <a name="initialization"></a>
+
+Within a script, the core model implementation can be imported with
+```python
+from dist.core import *
+```
+
+Then, it is necessary to create a `Model` object with
+```Python
+<model_name> = Model(data_grid_rows: int, data_grid_columns: int, model_grid_rows: int, model_grid_columns: int, model_node_count: int)
+```
+Where the dimensions (number of rows and columns) of both the full grid of data (most likely a grid covering the entire world) and the subset of that grid that forms the boundaries of the relevant model. Furthermore, the number of actual nodes that will form the model graph (assuming not all cells in the model grid will be considered as full nodes) must be specified. The actual details of these nodes must then be added from an external data input and loaded into the model, this first step only allocates the model arrays and forms the basic API structure.
+
+### Data Storage and Access <a name="datastorage"></a>
+

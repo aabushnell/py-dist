@@ -1,0 +1,18 @@
+### GITIGNORE ###
+
+## Project Directories
+
+# Local Data Folder
+data/
+
+
+## Cache Files
+
+# pychache 
+**/__pychache__/
+
+
+## MISC
+
+# pyenv local version file
+.python-version

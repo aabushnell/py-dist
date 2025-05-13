@@ -1,0 +1,6 @@
+{
+  "venvPath": "/home/aaron/.pyenv/versions/",
+  "venv": "data-analysis",
+  "include": ["src"],
+  "exclude": ["**/__pychache__"]
+}

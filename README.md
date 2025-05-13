@@ -46,7 +46,7 @@ from dist.core import *
 ```
 
 Then, it is necessary to create a `Model` object with
-```Python
+```python
 <model_name> = Model(data_grid_rows: int, data_grid_columns: int, model_grid_rows: int,
                      model_grid_columns: int, model_node_count: int)
 ```

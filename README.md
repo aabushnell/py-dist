@@ -48,7 +48,7 @@ from dist.core import *
 Then, it is necessary to create a `Model` object with
 ```Python
 <model_name> = Model(data_grid_rows: int, data_grid_columns: int, model_grid_rows: int,
-model_grid_columns: int, model_node_count: int)
+                     model_grid_columns: int, model_node_count: int)
 ```
 Where the dimensions (number of rows and columns) of both the full grid of data (most likely a grid covering the entire world) and the subset of that grid that forms the boundaries of the relevant model. Furthermore, the number of actual nodes that will form the model graph (assuming not all cells in the model grid will be considered as full nodes) must be specified. The actual details of these nodes must then be added from an external data input and loaded into the model, this first step only allocates the model arrays and forms the basic API structure.
 
